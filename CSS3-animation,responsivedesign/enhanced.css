@@ -1,0 +1,29 @@
+@media (max-width: 400px) {
+  ul#features li a {
+    color: black;
+  }
+  img {
+    display: none;
+  }
+}
+@media (min-width: 600px) {
+  body > * {
+    margin: 0 auto;
+    max-width: 56.25em;
+  }
+  ul#features {
+    text-align: center;
+  }
+  ul#features li {
+    display: inline-block;
+    margin: 2%;
+    min-height: 18em;
+    text-align: left;
+    width: 28%;
+  }
+}
+@media screen and (min-width: 900px) {
+  header {
+    height: 4em;
+  }
+}
