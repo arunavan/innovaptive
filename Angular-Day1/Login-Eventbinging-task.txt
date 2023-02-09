@@ -1,0 +1,36 @@
+login.ts
+
+export class Login {
+  public id: string ;
+  public pwd:string;
+}
+---ts
+
+
+export class LoginComponent {
+ login:Login =new Login();
+ result:string; 
+ validate() {
+        if(login.id==="innovapptive" &&  login.pwd==="innovapptive")
+         result="success";
+       else
+        result="success";
+    }
+
+
+}
+===========html
+
+<div>
+Id: <input type="text" [(ngModel)]="login.id"><br /><br />
+Password:<input type="password" [(ngModel)]="login.pwd"><br /><br />
+</div>
+
+
+
+<h2> login details : {{ login.id }}  {{ login.pwd }}</h2>
+
+<p (click)="validate()">Check login details</p>
+<div> {{ result }} </div>
+
+<br/>
