@@ -1,0 +1,31 @@
+Folders:
+
+e2e   -> end to end test cases
+
+node-modules  -> libraries needed
+
+src  => app , assets,environments folders, other individual files
+
+ index.html.. => to open application
+ main.ts..    => it is opend by angular-cli.json
+ polyfills.ts => backward compatability for the browser
+ style.css => to write css settings
+ test.ts => to write testing configuration
+ tsconfig.app.json => important file, config about the 
+          application,
+  
+src/app=> app-module.ts =>
+
+Config files:
+angular-cli.json => it has project name,boot module to bootstrap  property configuration, index file,
+                   styles css, bunch of other configuration
+       
+.gitnode => files need to be excluded from repository git
+
+karma.conf.js => test runner uses jasmine framework for unit testing
+
+package.json => contains dependency modules required for app
+                grunt,router lib etc
+protractor.conf.js => it has testing confgiuration
+tsconfig.json => typscript , config for typescript
+tslint.json => building our application , how to build
