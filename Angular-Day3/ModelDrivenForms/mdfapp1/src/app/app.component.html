@@ -1,0 +1,25 @@
+<div class="jumbotron">
+    <h4> ReactiveForm or Model DrivenForms</h4>
+        <div class="container">
+             <div class="row">
+                 <div class="col-md-6 offset-md-3">
+                    <form [formGroup]="formdata" (ngSubmit) = "onClickSubmit(formdata.value)">
+
+                     <input type="text" class="fortextbox" name="emailid" placeholder="emailid"
+                        formControlName="emailid">
+                     <br/>
+                      <input type="password" class="fortextbox" name="passwd"
+                             placeholder="passwd" formControlName="passwd">
+                      <br/>
+                      <!-- with validation  -->
+               <input type="submit" [disabled] ="!formdata.valid" class="forsubmit" value="Log In"> 
+                    <!-- without validation  -->
+                 <!--    <input type="submit" class="forsubmit" value="Log In">  -->
+                     </form>
+                        <div>    <p>  Data entered is : {{emailid}}  {{ passwd}}</p>
+                        </div>
+                 </div>
+             </div>
+        </div>
+</div>
+  
