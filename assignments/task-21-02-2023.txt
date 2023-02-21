@@ -1,0 +1,37 @@
+Task1:
+
+let products = of<Product>(
+    { pName: "televison", price: 17999 },
+    { pName: "air conditioner", price: 32499 },
+    { pName: "smartphone", price: 24299 },
+    { pName: "washing machine", price: 37999 },
+    { pName: "dish washer", price: 52499 }
+   
+)
+(map operator)
+1.Diplay in Angular component only names of Products in a tabular format.
+
+2.Display sum of price  all products whose price is  >30000
+
+
+Task2:
+CandidateLis= [ 
+                {  name="Ramesh",technology="Java",city="Pune",experience=5 },
+                {  name="Ram",technology="Angualr",city="Mumbai",experience=3 },
+                {  name="Raj",technology="React",city="Banglore",experience=2 },
+                {  name="Smith",technology="Java",city="Pune",experience=5 },
+                {  name="John",technology="Java",city="Hyderabad",experience=0 },
+                {  name="Sita",technology="React",city="Chennai",experience=1 },
+                {  name="Arun",technology="Angular",city="Hyderabad",experience=4 },
+                {  name="Krish",technology="React",city="Chennai",experience=5 },
+                {  name="Teja",technology="Java",city="Pune",experience=0 },
+}
+
+1.display only List of Pune Candidates
+2.display candidate count by Technical Expertise.
+3.listing candidates with highest experience
+4.find out the highest years of experience
+5.dsiplay  list of fresher candidates
+6.display the list in ascending order of experience		
+7.display candidate count citywise.
+
