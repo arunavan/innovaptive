@@ -1,0 +1,225 @@
+> use Cognizantbatch1
+switched to db Cognizantbatch1
+
+> show dbs
+admin                0.000GB
+config               0.000GB
+cts                  0.000GB
+cts1                 0.000GB
+local                0.000GB
+node-mongo-employee  0.000GB
+subscribe            0.000GB
+
+> use cts
+switched to db cts
+
+> use  cts009
+switched to db cts009
+
+> db
+cts009
+
+> use cts
+switched to db cts
+
+> db
+cts
+
+> show dbs
+admin                0.000GB
+config               0.000GB
+cts                  0.000GB
+cts1                 0.000GB
+local                0.000GB
+node-mongo-employee  0.000GB
+subscribe            0.000GB
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+> db.cts009.insert({"id":"508978","name":"Raj"})
+WriteResult({ "nInserted" : 1 })
+
+> db.cts009.insert({"id":"508978","name":"Raj"},{"id":"786756","name":"Ravi"})
+WriteResult({ "nInserted" : 1 })
+
+> db.cts009.insert({"id":"508978","name":"Raj"},{"id":"786756","name":"Ravi"})
+WriteResult({ "nInserted" : 1 })
+
+> show dbs
+admin                0.000GB
+config               0.000GB
+cts                  0.000GB
+cts1                 0.000GB
+local                0.000GB
+node-mongo-employee  0.000GB
+subscribe            0.000GB
+
+> use cts
+switched to db cts
+
+> db.createCollection("customer")
+{ "ok" : 1 }
+
+> use cts009
+switched to db cts009
+
+> db.createCollection("customer1")
+{ "ok" : 1 }
+
+> show dbs
+admin                0.000GB
+config               0.000GB
+cts                  0.000GB
+cts009               0.000GB
+cts1                 0.000GB
+local                0.000GB
+node-mongo-employee  0.000GB
+subscribe            0.000GB
+
+> db.createCollection("customer2")
+{ "ok" : 1 }
+
+> show collections
+customer1
+customer2
+> db.customer1.insert({"id":"001","name":"Raj"})
+WriteResult({ "nInserted" : 1 })
+
+> db.customer2.insert({"id":"001","name":"Rajkumar"})
+WriteResult({ "nInserted" : 1 })
+
+> db.customer1.insert({"id":"002","name":"Raj"})
+WriteResult({ "nInserted" : 1 })
+
+> db.customer1.insert({"id":"003","name":"Ravi"})
+WriteResult({ "nInserted" : 1 })
+
+> db.customer1.find()
+{ "_id" : ObjectId("5b4dd77bdffc26a600812c23"), "id" : "001", "name" : "Raj" }
+{ "_id" : ObjectId("5b4dd793dffc26a600812c25"), "id" : "002", "name" : "Raj" }
+{ "_id" : ObjectId("5b4dd79edffc26a600812c26"), "id" : "003", "name" : "Ravi" }
+
+> show collections
+customer1
+customer2
+> db.customer1.find()
+
+{ "_id" : ObjectId("5b4dd77bdffc26a600812c23"), "id" : "001", "name" : "Raj" }
+{ "_id" : ObjectId("5b4dd793dffc26a600812c25"), "id" : "002", "name" : "Raj" }
+{ "_id" : ObjectId("5b4dd79edffc26a600812c26"), "id" : "003", "name" : "Ravi" }
+
+> db.customer2.find()
+{ "_id" : ObjectId("5b4dd78bdffc26a600812c24"), "id" : "001", "name" : "Rajkuma
+" }
+
+> db.customer2.drop()
+true
+
+> show collections
+customer1
+
+> show dbs
+admin                0.000GB
+config               0.000GB
+cts                  0.000GB
+cts009               0.000GB
+cts1                 0.000GB
+local                0.000GB
+node-mongo-employee  0.000GB
+subscribe            0.000GB
+> use cts1
+
+switched to db cts1
+
+> db.dropDatabase()
+
+{ "dropped" : "cts1", "ok" : 1 }
+
+> show dbs
+admin                0.000GB
+config               0.000GB
+cts                  0.000GB
+cts009               0.000GB
+local                0.000GB
+node-mongo-employee  0.000GB
+subscribe            0.000GB
+
+> use cts
+switched to db cts
+
+> db.customer1.insert({"id":"09","name":"Ramesh"})
+WriteResult({ "nInserted" : 1 })
+
+> db.customer1.insert({"id":"10","name":"RameshRao","address":{"street":"AS Nag
+r"","city":"Hyd"}})
+2018-07-17T17:33:07.601+0530 E QUERY    [thread1] SyntaxError: missing } after
+roperty list @(shell):1:80
+
+> db.customer1.insert({"id":"10","name":"RameshRao","address":{"street":"AS Nag
+r","city":"Hyd"}})
+WriteResult({ "nInserted" : 1 })
+
+> db.customer1.find()
+{ "_id" : ObjectId("5b4ddaaadffc26a600812c27"), "id" : "09", "name" : "Ramesh"
+
+{ "_id" : ObjectId("5b4ddb1cdffc26a600812c28"), "id" : "10", "name" : "RameshRa
+", "address" : { "street" : "AS Nagar", "city" : "Hyd" } }
+
+> var cust= [{"id":"20","name":"sita"},{"id":"21","name":"gita"}];
+
+> db.customer1.insert(cust)
+BulkWriteResult({
+        "writeErrors" : [ ],
+        "writeConcernErrors" : [ ],
+        "nInserted" : 2,
+        "nUpserted" : 0,
+        "nMatched" : 0,
+        "nModified" : 0,
+        "nRemoved" : 0,
+        "upserted" : [ ]
+})
+
+> db.customer1.find()
+{ "_id" : ObjectId("5b4ddaaadffc26a600812c27"), "id" : "09", "name" : "Ramesh"
+
+{ "_id" : ObjectId("5b4ddb1cdffc26a600812c28"), "id" : "10", "name" : "RameshRa
+", "address" : { "street" : "AS Nagar", "city" : "Hyd" } }
+{ "_id" : ObjectId("5b4ddbcddffc26a600812c29"), "id" : "20", "name" : "sita" }
+{ "_id" : ObjectId("5b4ddbcddffc26a600812c2a"), "id" : "21", "name" : "gita" }
+
+> db.customer1.update({'name':'sita'},{$set:{'id':'2020'}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+>
+
+> db.customer1.find()
+{ "_id" : ObjectId("5b4ddaaadffc26a600812c27"), "id" : "09", "name" : "Ramesh"
+
+{ "_id" : ObjectId("5b4ddb1cdffc26a600812c28"), "id" : "10", "name" : "RameshRa
+", "address" : { "street" : "AS Nagar", "city" : "Hyd" } }
+{ "_id" : ObjectId("5b4ddbcddffc26a600812c29"), "id" : "2020", "name" : "sita"
+
+{ "_id" : ObjectId("5b4ddbcddffc26a600812c2a"), "id" : "21", "name" : "gita" }
+
+> db.customer1.update({'id':'21'},{$set:{'name':'Gita Sri'}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+
+> db.customer1.find()
+{ "_id" : ObjectId("5b4ddaaadffc26a600812c27"), "id" : "09", "name" : "Ramesh"
+
+{ "_id" : ObjectId("5b4ddb1cdffc26a600812c28"), "id" : "10", "name" : "RameshRa
+", "address" : { "street" : "AS Nagar", "city" : "Hyd" } }
+{ "_id" : ObjectId("5b4ddbcddffc26a600812c29"), "id" : "2020", "name" : "sita"
+
+{ "_id" : ObjectId("5b4ddbcddffc26a600812c2a"), "id" : "21", "name" : "Gita Sri
+ }
+> db.customer1.update({'id':'21'},{$set:{'name':'Gita Sri'}})
