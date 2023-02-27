@@ -1,0 +1,7 @@
+
+
+
+1. Read a file and find number of lines , words and characters in a file.
+
+2. for a given path find whether if directory or file, if directory
+    display txt file only inside given folder.

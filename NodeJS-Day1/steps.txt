@@ -1,0 +1,24 @@
+steps
+download link
+https://nodejs.org/en/
+
+Download Node.js from the official Node.js web site
+: https://nodejs.org
+
+
+create file
+============================myfirst.js
+var http = require('http');
+
+http.createServer(function (req, res) {
+    res.writeHead(200, {'Content-Type': 'text/html'});
+    res.end('Hello World!');
+}).listen(8081);
+============================
+node myfirst.js
+
+open browser http://localhost:8081
+
+Hello World  
+
+->message will be displayed in browser
