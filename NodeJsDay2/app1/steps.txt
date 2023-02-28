@@ -1,0 +1,11 @@
+create app1 folder
+
+>md app1
+
+>cd app1
+
+/app1>npm init
+
+create index.js file and run 
+/app1>node index.js
+open browser at port 3000

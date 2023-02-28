@@ -1,0 +1,6 @@
+
+
+In a given path sperate all the files into 
+seperate lists
+--> all txt files into an array
+--> all .js files into another array ...
