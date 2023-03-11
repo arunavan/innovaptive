@@ -1,0 +1,35 @@
+<div class="container-fluid">
+  <div *ngIf="loading; else loadingBlock" class="wrapper" style="height: 90vh">
+    <h2>Loading...</h2>
+  </div>
+  <ng-template #loadingBlock>
+    <div class="card mx-a p-3 constrain">
+      <h2 class="text-center">Add Todo</h2>
+      <div class="mb-3">
+        <label for="title" class="form-label fw-semibold">Title</label>
+        <input
+          type="text"
+          class="form-control"
+          id="title"
+          [(ngModel)]="title"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="description" class="form-label fw-semibold"
+          >Description</label
+        >
+        <input
+          type="text"
+          class="form-control"
+          id="description"
+          [(ngModel)]="description"
+        />
+      </div>
+
+      <div class="mx-a">
+        <button class="btn btn-primary" (click)="onSubmit()">Submit</button>
+      </div>
+    </div>
+  </ng-template>
+</div>

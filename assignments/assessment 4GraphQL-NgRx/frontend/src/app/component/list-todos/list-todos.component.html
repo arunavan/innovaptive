@@ -1,0 +1,69 @@
+<div class="container-fluid">
+  <div *ngIf="loading; else loadingBlock" class="wrapper" style="height: 90vh">
+    <h2>Loading...</h2>
+  </div>
+  <ng-template #loadingBlock>
+    <div class="card p-3 mx-a">
+      <h2 class="text-center">My Todos</h2>
+      <div class="my-3 p-3 mx-a">
+        <div class="row">
+          <div class="col-auto">
+            <label for="searchTodos" class="form-label fw-semibold"
+              >Search Todos:</label
+            >
+          </div>
+          <div class="col-5">
+            <input
+              type="text"
+              class="form-control"
+              id="searchTodos"
+              placeholder="Search Todos by Title"
+              [(ngModel)]="search"
+            />
+          </div>
+          <div class="col-auto">
+            <ng-container *ngIf="!resetState; else resetButton">
+              <button class="btn btn-primary" (click)="onSearchTodo()">
+                <span>
+                  <i class="bi bi-search mx-2"></i>
+                  Search
+                </span>
+              </button>
+            </ng-container>
+            <ng-template #resetButton>
+              <button class="btn btn-secondary" (click)="onResetState()">
+                <span>
+                  <i class="bi bi-x-lg mx-2"></i>
+                  Reset
+                </span>
+              </button>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+      <app-list-todo-table
+        title="Pending Tasks"
+        [todos]="todos"
+        (changeStatus)="onChangeStatus($event)"
+        (deleteTodo)="onDeleteTodo($event)"
+        (updateTodo)="onUpdateTodo($event)"
+      ></app-list-todo-table>
+      <app-list-todo-table
+        title="Completed Tasks"
+        [todos]="todos"
+        (changeStatus)="onChangeStatus($event)"
+        (deleteTodo)="onDeleteTodo($event)"
+        (updateTodo)="onUpdateTodo($event)"
+      ></app-list-todo-table>
+
+      <div class="add-todo my-3 mx-a">
+        <button class="btn btn-primary" (click)="onAddTodo()">
+          <span>
+            <i class="bi bi-plus-lg mx-2"></i>
+            Add Todo
+          </span>
+        </button>
+      </div>
+    </div>
+  </ng-template>
+</div>

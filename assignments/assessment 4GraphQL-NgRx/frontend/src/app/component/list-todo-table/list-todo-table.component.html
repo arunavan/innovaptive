@@ -1,0 +1,78 @@
+<div class="pending-tasks my-3 mx-3">
+  <div
+    class="navbar banner text-center"
+    style="display: block"
+    [ngClass]="{
+      'bg-danger': isPending,
+      'bg-success': !isPending
+    }"
+  >
+    <span class="h5 fw-bold">{{ title }}</span>
+  </div>
+  <ng-container
+    *ngIf="
+      isPending ? todosPending.length : todosCompleted.length;
+      else noTodosBlock
+    "
+  >
+    <table
+      class="table p-2 table-striped"
+      [ngClass]="{
+        'table-danger': isPending,
+        'table-success': !isPending
+      }"
+    >
+      <thead>
+        <tr>
+          <th scope="col">Todo ID</th>
+          <th scope="col" class="text-center">Title</th>
+          <th scope="col" style="max-width: 50%" class="text-center">
+            Description
+          </th>
+          <th scope="col" class="text-center">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container
+          *ngFor="
+            let todo of isPending ? todosPending : todosCompleted as todos
+          "
+        >
+          <tr [ngClass]="isPending ? '' : 'text-decoration-line-through'">
+            <td>{{ todo.id }}</td>
+            <td class="text-center">{{ todo.title }}</td>
+            <td class="text-truncate text-center" style="max-width: 50%">
+              {{ todo.description }}
+            </td>
+            <td class="text-center">
+              <span class="clickable mx-3" (click)="onChangeStatus(todo)">
+                <ng-container *ngIf="title == 'Pending Tasks'; else crossIcon">
+                  <i class="bi bi-check-lg"></i>
+                </ng-container>
+                <ng-template #crossIcon>
+                  <i class="bi bi-x-lg"></i>
+                </ng-template>
+              </span>
+              <span class="clickable mx-3" (click)="onUpdateTodo(todo)">
+                <i class="bi bi-pencil-fill"></i>
+              </span>
+              <span class="clickable mx-3" (click)="onDeleteTodo(todo)">
+                <i class="bi bi-trash3-fill"></i>
+              </span>
+            </td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </ng-container>
+  <ng-template #noTodosBlock>
+    <div
+      class="text-center p-2"
+      [style]="
+        isPending ? 'backgroundColor: #f8d7da' : 'backgroundColor: #d1e7dd;'
+      "
+    >
+      No Todos to show
+    </div>
+  </ng-template>
+</div>
