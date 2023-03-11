@@ -1,0 +1,32 @@
+
+
+
+create build for agular project
+
+
+>ng build --prod
+
+dist folder created with production build
+
+-> switch to dist folder, copy Dockerfile with below steps
+
+FROM node
+WORKDIR /usr/local/app
+COPY ./ /usr/local/app/
+RUN npm install
+RUN npm run build
+
+command to cretae docker image
+
+>docker build -t angular-app .
+
+command to run image, container creation hpn in this step
+run image locally
+
+>docker run angular-app
+
+docker tag  c39c9dee1489 or imagename  aruna708/angular-app:latest
+
+docker push aruna708/angular-image:latest
+
+docker  run  -p 8087:8087 aruna708/angular-app
